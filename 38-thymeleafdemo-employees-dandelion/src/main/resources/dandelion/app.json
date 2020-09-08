@@ -1,0 +1,14 @@
+{
+    "assets": [
+		{
+		    "locations": {
+		        "file": "/assets/css/app.css"
+		    }
+		},
+		{
+		    "locations": {
+		        "file": "/assets/css/yadcf-custom.css"
+		    }
+		}
+    ]
+}
