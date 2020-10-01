@@ -2,3 +2,18 @@
 	font-style: italic;
 	color: green,
 }
+
+.jumbotron {
+    background: url('../images/SpringCoreJumbotron.jpg') no-repeat center center;
+    height: 350px;
+    color: white;
+    text-shadow: #444 0 1px 1px;
+}
+
+.centered {
+    display: table-cell;
+      height: 350px;
+      width: 800px;
+    text-align: center;
+    vertical-align: middle;
+}

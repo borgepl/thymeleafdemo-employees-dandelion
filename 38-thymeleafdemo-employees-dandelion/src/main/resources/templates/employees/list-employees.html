@@ -8,15 +8,24 @@
  
 	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
 	
+	 <link th:href="@{/css/demo.css}" rel="stylesheet" media="screen"/>
 	
 	<title>Employee Directory</title>
 </head>
 
 <body>
 
+<div class="jumbotron">
+    <div class="container">
+    		<br/>
+        	<h1>--- PDBSoft ---</h1>
+        a Spring Boot Application for Employee Directory
+    </div>
+</div>
+
 <div class="container">
 
-	<h3>Employee Directory</h3>
+	<h3>Employee Directory List</h3>
 	<br />
 	
 	<!--  Add a button -->
@@ -70,6 +79,14 @@
 
 </div>
 </div>
+
+<div class="container" th:fragment="footer">
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text pull-left">© 2020 - by PDBSoft - Thanks to Spring Framework Guru</p>
+        </div>
+    </div>
+</div>	
 	
 </body>
 </html>
