@@ -1,0 +1,17 @@
+## Build the application image with Dockerfile
+docker build --tag borgepl/employeeapp:1.0 .
+
+
+## Use to run mysql db docker image
+docker run --name mysqldb -p 3307:3306 -e MYSQL_DATABASE=employee_directory -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -d mysql
+
+## Connection string
+jdbc:mysql://localhost:3306/employee_directory?useSSL=false&serverTimezone=UTC
+
+## Use to run the application container linked to the DB
+docker run --name employeeapp -p 8080:8080 \
+--link mysqldb:mysqldb \ 
+-e SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/employee_directory  \
+-e SPRING_DATASOURCE_USERNAME=root -e SPRING_DATASOURCE_PASSWORD='' \
+-e SPRING_JPA_HIBERNATE_DDL-AUTO=update \
+-d borgepl/employeeapp:1.0
