@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  mysqldb:
+    image: mysql
+    restart: always
+    ports:
+      - '3307:3306'
+    environment:
+      MYSQL_DATABASE: employee_directory 
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - mysql-data:/var/lib/mysl
+        
+  employeeapp:
+    image: borgepl/employeeapp:1.0
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+      - mysqldb
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/employee_directory
+      SPRING_DATASOURCE_USERNAME: root 
+      SPRING_DATASOURCE_PASSWORD: ''
+      SPRING_JPA_HIBERNATE_DDL-AUTO: update 
+    volumes:
+      - tomcat-tmpdata:/tmp
+
+volumes:
+   mysql-data:
+   tomcat-tmpdata:
